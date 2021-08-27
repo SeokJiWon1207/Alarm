@@ -20,8 +20,9 @@ data class AlarmDisplayModel(
             return if (hour < 12) "AM" else "PM"
         }
 
-    fun makeDataForDB(): String {
-
-        return "$hour:$minute"
-    }
+    val onOffText: String
+        get() {
+            return if (onOff) "알람 끄기" else "알람 켜기"
+        }
+    fun makeDataForDB() = "$hour:$minute"
 }
